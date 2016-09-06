@@ -1,0 +1,53 @@
+----------------------------Pages to index--------------------------------
+home.php
+
+
+
+----------------------------Pages to avoid indexing--------------------------------
+_404error.php
+
+----------------------------SEO-TODOs------------------------------------
+1. Make sure the 301 redirect is happening from non-www to www verion of the website properly. In our case php redirection is being used since htaccess has some other rewrite rules which seem to conflict with 301 redirect.
+2. Leverage Browser Caching for Web Resources using htaccess. Also to use this feature, the mod_expires module of Apache is to be enable in local using “sudo a2enmod expires”. To check if the module has been enabled, go to phpinfo.php and see that mod_expires module is listed in the loaded modules section.
+3. Use rel=”canonical” with the preferred www version for each page to avoid duplicate content.
+4. For searched pages using Ids like http://ubuntu-vbox/category/<name>/<id>, make sure the rel=canonical is formed properly.
+5. For searched pages missing Ids like http://ubuntu-vbox/category/<name>, try to 301 redirect to a proper url.
+6. Add <meta name="robots" content="noindex"> to pages which you dont want to index.
+7. Ensure the "alt" attribute for all the images carries a sensible value
+
+
+Ensure the heading tags are placed properly in the pages as per the flow of the page
+
+----------------------------DEPLOYMENT-TODOs------------------------------------
+Ensure the ENV variable is properly configured for PRODUCTION
+check the JSON-LD parameter completion for all pages
+Check the sitemap.xml
+Check for no index robots meta tag in pages
+
+
+-------------------------- Stop crawling ---------------------------------------
+<meta name="robots" content="noindex, nofollow">
+
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+
+<link href="<?php echo __WEB_ROOT?>/static/plugins/yamm/yamm.css" rel="stylesheet">
+
+<!-- Owl Carousel Styles -->
+<link href="<?php echo __WEB_ROOT?>/static/plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
+<link href="<?php echo __WEB_ROOT?>/static/plugins/owl-carousel/owl.theme.css" rel="stylesheet">
+
+<!-- Owl Carousel Script -->
+<script src="<?php echo __WEB_ROOT?>/static/plugins/owl-carousel/owl.carousel.min.js"></script> 
+
+<!-- Skrollr Script -->
+<script src="<?php echo __WEB_ROOT?>/static/plugins/skrollr/skrollr.min.js"></script> 
+
+<!--[if lt IE 9]>
+<script type="text/javascript" src="<?php echo __WEB_ROOT?>/static/plugins/skrollr/skrollr.ie.min.js"></script>
+<![endif]-->
+
+
+
+
+https://scotch.io/tutorials/building-interactive-scrolling-websites-with-scrollmagic-js
